@@ -11,6 +11,6 @@
 
 ## ⚙ Repositories
 
-- **Client** → https://github.com/pj-hellolo/Hellolo-Client
-- **Server** → https://github.com/pj-hellolo/Hellolo-Server
-- **AI** → https://github.com/pj-hellolo/Hellolo-AI
+- **Client** : https://github.com/pj-hellolo/Hellolo-Client
+- **Server** : https://github.com/pj-hellolo/Hellolo-Server
+- **AI** : https://github.com/pj-hellolo/Hellolo-AI
