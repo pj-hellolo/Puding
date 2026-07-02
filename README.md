@@ -26,20 +26,21 @@ AI가 2일마다 문제를 자동 출제하고, 학생들이 익명/실명으로
 
 ### 1. 백엔드
 
-​```bash
+```bash
 cd backend
 
 # 환경변수 설정: DB 접속 정보 (SPRING_DATASOURCE_URL / USERNAME / PASSWORD)
 # 키 없이 UI만 둘러볼 경우 OPENAI_API_KEY / JUDGE0_API_KEY 는 비워둬도 됨
 
-./gradlew bootRun               # Windows: gradlew.bat bootRun
+./gradlew bootRun    # Windows: gradlew.bat bootRun
 # http://localhost:8080
-​```
+```
 
 - DB 스키마는 서버 기동 시 Flyway 마이그레이션(`src/main/resources/db/migration`)이 자동 적용
 - API 명세는 Notion 스펙 문서 참고
 
-데모 계정:
+데모 계정 (로컬 전용):
+
 - 관리자 `admin@somago.hs.kr` / `admin1234`
 - 학생 `student1@somago.hs.kr` ~ `student6@somago.hs.kr` / `test1234`
 
