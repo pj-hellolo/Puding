@@ -49,7 +49,7 @@ cd backend
 ```bash
 cd frontend
 npm install
-copy .env.example .env          # VITE_API_BASE_URL=http://localhost:8000
+copy .env.example .env          # VITE_API_BASE_URL=http://localhost:8080
 npm run dev                     # http://localhost:5173
 ```
 
@@ -57,7 +57,7 @@ npm run dev                     # http://localhost:5173
 
 ## 핵심 동작
 
-### 출제 스케줄 (`app/core/scheduler.py`)
+### 출제 스케줄
 | 회차 | 공개 | 마감 |
 |------|------|------|
 | 1회차 | 월 0시 | 화 24시 |
@@ -70,12 +70,12 @@ npm run dev                     # http://localhost:5173
 - 화/목/토 0시: 직전 회차 2일 피드백 생성
 - 일요일 0시: 주간 피드백 (+ 4번째 일요일이면 월간 피드백)
 
-### AI 문제 생성 3단계 필터 (`app/services/ai_generator.py`)
+### AI 문제 생성 3단계 필터
 1. **유사도 검사** — 기존 문제와 80% 이상 유사하면 재생성
 2. **정답 검증** — AI가 정답 코드 생성 → Judge0 실행해 예제 통과 확인
 3. **난이도 재확인** — AI에게 난이도 되물어 의도한 버전과 일치하는지 확인
 
-→ 3회 재시도 후에도 실패 시 관리자 알림 (`notification.notify_admin_generation_failure`)
+→ 3회 재시도 후에도 실패 시 관리자 알림 
 
 ### 점수 체계
 | 난이도 | 기본 | AI 피드백 | 최대 |
@@ -87,7 +87,7 @@ npm run dev                     # http://localhost:5173
 AI 피드백 = 시간복잡도 효율(10) + 코드 가독성(10) + 풀이 독창성(10).
 모든 점수는 소수점 2자리. 같은 문제는 **마지막 제출**만 점수에 반영.
 
-### 랭킹 (`app/services/ranking.py`)
+### 랭킹
 별도 집계 테이블 없이 `submissions.submitted_at` 기준으로 직접 집계.
 각 (user, problem)의 마지막 제출만 합산.
 - 기간: 2일 / 주간 / 월간
@@ -117,8 +117,7 @@ soma-battle/
   디자인 시스템을 구현했다. 컬러 팔레트/타이포/컴포넌트 스타일은 스펙 그대로 반영.
 - **전역 상태**: React Context API(`src/store/authStore.jsx`, `rankingStore.jsx`)로 구현.
   호출 시그니처는 `useAuthStore((s) => s.user)`처럼 셀렉터를 그대로 받도록 유지.
-- **알림**: 인메모리 큐 + 폴링(`notification.py`, Navbar 30초 폴링)으로 구현.
-  실서비스에서는 WebSocket/푸시/이메일로 교체 가능하도록 인터페이스만 통일.
+- **알림**: 인메모리 큐 + 폴링(Navbar 30초 폴링)
 - **인증**: JWT(localStorage) 기반. 익명 토글 시 AI 스타일 닉네임 자동 생성.
 - **DB 스키마 관리**: 개발/운영 모두 Flyway 마이그레이션으로 버전 관리.
   JPA `ddl-auto`는 `validate`로 두어 엔티티와 스키마 불일치를 기동 시점에 잡는다.
