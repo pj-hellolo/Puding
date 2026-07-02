@@ -104,9 +104,9 @@ soma-battle/
 
 ## Repositories
 
-- **Client** : https://github.com/pj-hellolo/Cocky-Client
-- **Server** : https://github.com/pj-hellolo/Cocky-Server
-- **AI** : https://github.com/pj-hellolo/Cocky-AI
+- **Client** : https://github.com/hellolo-cocky/Cocky-Client
+- **Server** : https://github.com/hellolo-cocky/Cocky-Server
+- **AI** : https://github.com/hellolo-cocky/Cocky-AI
 
 ---
 
