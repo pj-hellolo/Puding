@@ -50,7 +50,7 @@ cd backend
 cd frontend
 npm install
 copy .env.example .env          # VITE_API_BASE_URL=http://localhost:8080
-npm run dev                     # http://localhost:5173
+npm run dev                     # http://localhost:5174
 ```
 
 ---
